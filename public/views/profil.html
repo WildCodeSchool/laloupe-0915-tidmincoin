@@ -1,0 +1,19 @@
+{{title}}
+
+	{{id}}
+	<div class="form-group">
+		<input type="text" class="form-control" id="inputMessage" ng-model="utilisateur.nom">
+		<input type="text" class="form-control" id="inputMessage" ng-model="utilisateur.prenom">
+		<input type="text" class="form-control" id="inputMessage" ng-model="utilisateur.genre">
+		<input type="text" class="form-control" id="inputMessage" ng-model="utilisateur.pseudo">
+		<input type="text" class="form-control" id="inputMessage" ng-model="utilisateur.motdp">
+		<input type="text" class="form-control" id="inputMessage" ng-model="utilisateur.naissance">
+		<input type="text" class="form-control" id="inputMessage" ng-model="utilisateur.adresse">
+		<input type="text" class="form-control" id="inputMessage" ng-model="utilisateur.cp">
+	</div>
+		<div class="pull-right">
+					<button type="submit" class="btn btn-default" ng-click="editer(utilisateur)">Éditer</button>
+					<button type="submit" class="btn btn-danger" ng-click="supprimer(utilisateur)">Supprimer</button>
+		</div> 
+
+		

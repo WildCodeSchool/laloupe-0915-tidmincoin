@@ -1,0 +1,42 @@
+<ul class="list-group">
+	<li class="list-group-item" ng-repeat="utilisateur in utilisateurs">
+		<form class="form-inline">
+			<div class="form-group">
+				<h4 type="text">{{utilisateur.pseudo}}</h4>
+			</div>
+			<div class="pull-right">
+				<button type="submit" class="btn btn-default" ng-click="editer(utilisateur)"><a href ='/#/repertoire/{{utilisateur.id}}'>Éditer</a></button>
+				<button type="submit" class="btn btn-danger" ng-click="supprimer(utilisateur)">Supprimer</button>
+			</div>
+		</form>
+	</li>
+</ul>
+
+<div ng-show="showModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="form-group">
+					<input type="text" class="form-control" id="inputMessage" 
+					   ng-model="utilisateur.nom">
+					<input type="text" class="form-control" id="inputMessage" 
+					   ng-model="utilisateur.prenom">
+					<input type="text" class="form-control" id="inputMessage" 
+					   ng-model="utilisateur.genre">
+					<input type="text" class="form-control" id="inputMessage" 
+					   ng-model="utilisateur.pseudo">
+					<input type="text" class="form-control" id="inputMessage" 
+					   ng-model="utilisateur.motdp">
+					<input type="text" class="form-control" id="inputMessage" 
+					   ng-model="utilisateur.naissance">
+					<input type="text" class="form-control" id="inputMessage" 
+					   ng-model="utilisateur.adresse">
+					<input type="text" class="form-control" id="inputMessage" 
+					   ng-model="utilisateur.cp">
+			</div>
+			<div class="pull-right">
+					<button type="submit" class="btn btn-default" ng-click="editer(utilisateur)">Éditer</button>
+					<button type="submit" class="btn btn-danger" ng-click="supprimmer(utilisateur)">Supprimmer</button>
+			</div>
+		</div>
+	</div>
+</div>
