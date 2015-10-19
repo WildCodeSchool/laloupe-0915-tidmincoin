@@ -77,3 +77,17 @@ module.exports.delete = function(req, res){
 		res.sendStatus(200);
 	})
 }
+
+module.exports.checkLog = function(req, res){
+	Utilisateur.findOne({
+		where: {
+			pseudo: req.body.pseudo,
+			motdp:req.body.motdp
+		}
+	}).then(function(data){
+		if(!data)
+			res.sendStatus(404);
+		else
+			res.sendStatus(200);
+	})
+}

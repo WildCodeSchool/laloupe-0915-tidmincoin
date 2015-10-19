@@ -14,4 +14,6 @@ module.exports 	= function(app) {
 
 	app.delete('/utilisateurs/:id', utilisateur.delete);
 
+	app.post('/login', utilisateur.checkLog);
+
 }

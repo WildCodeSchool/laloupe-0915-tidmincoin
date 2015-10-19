@@ -1,4 +1,4 @@
-function profilController($scope, $routeParams, utilisateurService) {
+function profilController($scope, $routeParams, $location, utilisateurService) {
 	$scope.title = "Profil Utilisateur";
 
 	// $scope.showModal = false;
@@ -12,11 +12,15 @@ function profilController($scope, $routeParams, utilisateurService) {
 	});
 
 	
-
+	$scope.editer = function() {
+		utilisateurService.update($scope.utilisateur.id, $scope.utilisateur).then(function(res){
+			if (res.status == "200"){
+				$location.path("/repertoire");
+			}
+		});
+	}
 
 	$scope.supprimer = function(utilisateur){
-		utilisateurService.delete(utilisateur.id).then(function(res){
-			load();
-		});
+		utilisateurService.delete(utilisateur.id);
 	} 
 }
