@@ -1,15 +1,15 @@
-function dialectesController($scope, dialecteService) {
-	$scope.title = 'liste des dialectes enregistrés';
-
+function mainController($scope, $http, dialecteService) {
+	$scope.title = "dialecte List";
+	
 	function load(){
 		dialecteService.get().then(function(res){
-			$scope.tdialecte = res.data;
+			$scope.dialectes = res.data;
 		});
 	}
 
 	$scope.add = function(){
 		var data = {};
-		data.message = $scope.message;
+		data.dialecte = $scope.dialecte;
 		
 		dialecteService.create(data).then(function(res){
 			load();

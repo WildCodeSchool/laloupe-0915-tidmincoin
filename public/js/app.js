@@ -19,7 +19,7 @@ function config($routeProvider) {
 			templateUrl: 'views/profil.html',
 			controller: 'profilController'
 		})
-		.when('/dialectes.html', {
+		.when('/dialectes', {
 			templateUrl: 'views/dialectes.html',
 			controller: 'dialectesController'
 		})		
