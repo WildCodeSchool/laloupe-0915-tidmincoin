@@ -1,8 +1,8 @@
 function config($routeProvider) {
 	$routeProvider
 		.when('/', {
-			templateUrl: 'views/main.html',
-			controller: 'mainController'
+			templateUrl: 'views/connexion.html',
+			controller: 'connexionController'
 		})
 		.when('/about', {
 			templateUrl: 'views/about.html'
@@ -19,6 +19,11 @@ function config($routeProvider) {
 			templateUrl: 'views/profil.html',
 			controller: 'profilController'
 		})
+		.when('/dialectes.html', {
+			templateUrl: 'views/dialectes.html',
+			controller: 'dialectesController'
+		})		
+		.otherwise('/')
 }
 
 function run($rootScope, $location){
@@ -31,12 +36,13 @@ function run($rootScope, $location){
 angular.module('app', ['ngRoute'])
     .config(config)
     .controller('mainController', mainController)
+    .controller('connexionController', connexionController)
     .controller('formulaireController', formulaireController)
     .controller('repertoireController', repertoireController)
     .controller('profilController', profilController)
+    .controller('dialectesController', dialectesController)
     .service('todoService', todoService)
     .service('utilisateurService', utilisateurService)
+    .service('dialecteService', dialecteService)
     /*.factory('', )*/
     .run(run);
-
-
