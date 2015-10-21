@@ -4,7 +4,7 @@ jQuery(document).ready(function() {
     /*
         Fullscreen background
     */
-    $.backstretch("img/cover-depardon.jpg");
+    // $.backstretch("img/cover-depardon.jpg");
     
     /*
         Form validation

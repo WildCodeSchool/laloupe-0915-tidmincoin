@@ -5,6 +5,7 @@ body{
 	background: url('../img/cover-depardon.jpg') no-repeat center fixed; 
 	-webkit-background-size: cover; /* pour anciens Chrome et Safari */
 	background-size: cover; /* version standardisée */
+  overflow:hidden;
 }
 
 h1 {
@@ -25,6 +26,9 @@ h3 {
 }
 
 
+.container-bloc {
+  margin-top:5em;
+}
 
 .navbar-border{
 	border-bottom: 3px solid #F0DB4F;

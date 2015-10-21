@@ -12,7 +12,7 @@ function connexionController($scope, $location, utilisateurService) {
 			$location.path('/repertoire')
 		}, function(res){
 			//ERROR
-			alert("Miaou");
+			alert("Erreur");
 		});
 	}
 }
