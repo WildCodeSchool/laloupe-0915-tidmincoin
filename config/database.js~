@@ -1,7 +1,7 @@
 // DATABASE CONFIG
 var Sequelize = require('sequelize');
 
-module.exports = new Sequelize('tidmincoin1', 'root', 'azerty12', {
+module.exports = new Sequelize('tidmincoin', 'root', 'jecode4laloupe', {
   host: 'localhost',
   dialect: 'mysql'
 });
