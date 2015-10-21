@@ -41,7 +41,6 @@ angular.module('app', ['ngRoute'])
     .controller('repertoireController', repertoireController)
     .controller('profilController', profilController)
     .controller('dialectesController', dialectesController)
-    .service('todoService', todoService)
     .service('utilisateurService', utilisateurService)
     .service('dialecteService', dialecteService)
     /*.factory('', )*/

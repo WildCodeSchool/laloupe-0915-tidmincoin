@@ -1,4 +1,4 @@
-function mainController($scope, $http, dialecteService) {
+function dialectesController($scope, $http, dialecteService) {
 	$scope.title = "dialecte List";
 	
 	function load(){
