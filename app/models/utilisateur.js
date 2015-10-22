@@ -1,6 +1,9 @@
 var Sequelize = require('sequelize');
 var db = require('../../config/database.js');
 
+var dialectes = require('./dialecte');
+
+
 var Utilisateur = db.define('utilisateur', {
   nom: Sequelize.STRING,
   prenom: Sequelize.STRING,
@@ -13,6 +16,8 @@ var Utilisateur = db.define('utilisateur', {
 
 
 });
+
+Utilisateur.belongsToMany(dialectes);
 
 Utilisateur.sync().then(function(){});
 
