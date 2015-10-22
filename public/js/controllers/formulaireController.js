@@ -1,5 +1,5 @@
-function formulaireController($scope, utilisateurService) {
-	$scope.title = "Liste d'utilisateurs";
+function formulaireController($scope, utilisateurService, dialecteService) {
+	$scope.title = "inscription d'utilisateurs";
 
 	$scope.enregistrer = function(){
 		var data = {};
@@ -12,6 +12,7 @@ function formulaireController($scope, utilisateurService) {
 		data.adresse = $scope.adresse;
 		data.cp = $scope.cp;
 
+
 		utilisateurService.create(data).then(function(res){
 			//Success
 			$scope.displayMessage = true;
@@ -21,5 +22,12 @@ function formulaireController($scope, utilisateurService) {
 			$scope.displayMessage = true;
 			$scope.message = "KO";
 		});
+	}
+
+	$scope.get = function(){
+		var data2 = {};
+		data2.dialecte = $scope.dialecte;
+
+	dialecteService.get(data2).then(function(res){});
 	}
 }

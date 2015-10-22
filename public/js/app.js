@@ -11,6 +11,10 @@ function config($routeProvider) {
 			templateUrl: 'views/formulaire.html',
 			controller: 'formulaireController'
 		})
+		.when('/recherche', {
+			templateUrl: 'views/recherche.html',
+			controller: 'rechercheController'
+		})
 		.when('/repertoire', {
 			templateUrl: 'views/repertoire.html',
 			controller: 'repertoireController'
