@@ -1,5 +1,5 @@
 function dialectesController($scope, $http, dialecteService) {
-	$scope.title = "dialecte List";
+	$scope.title = "Liste des dialectes";
 	
 	function load(){
 		dialecteService.get().then(function(res){

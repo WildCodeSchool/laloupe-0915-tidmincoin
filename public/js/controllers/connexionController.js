@@ -14,5 +14,14 @@ function connexionController($scope, $location, utilisateurService) {
 			//ERROR
 			alert("Erreur");
 		});
-	}
+		// if pseudo = 'administrateur'
+		// 	prompt('administrateur');
+	};
+
+	// $scope.verification = function() {
+	// 	var logadmin = {};
+	// 	logadmin.pseudo = $scope.pseudo;
+	// 	logadmin.motdp = $scope.motdp;
+		
+	// }
 }

@@ -24,10 +24,14 @@ function formulaireController($scope, utilisateurService, dialecteService) {
 		});
 	}
 
-	$scope.get = function(){
-		var data2 = {};
-		data2.dialecte = $scope.dialecte;
+	// $scope.get = function(){
+	// 	var data2 = {};
+	// 	data2.dialecte = $scope.dialecte;
 
-	dialecteService.get(data2).then(function(res){});
-	}
+	// dialecteService.get(data2).then(function(res){});
+	// }
+
+	dialecteService.get().then(function(res){
+		$scope.dialectes = res.data;
+	});
 }
