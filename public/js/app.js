@@ -4,6 +4,7 @@ function config($routeProvider) {
 			templateUrl: 'views/connexion.html',
 			controller: 'connexionController'
 		})
+		
 		.when('/about', {
 			templateUrl: 'views/about.html'
 		})
@@ -43,6 +44,7 @@ angular.module('app', ['ngRoute'])
     .controller('connexionController', connexionController)
     .controller('formulaireController', formulaireController)
     .controller('repertoireController', repertoireController)
+	.controller('rechercheController', rechercheController)
     .controller('profilController', profilController)
     .controller('dialectesController', dialectesController)
     .service('utilisateurService', utilisateurService)

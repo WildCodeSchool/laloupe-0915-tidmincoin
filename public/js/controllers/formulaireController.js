@@ -20,7 +20,7 @@ function formulaireController($scope, utilisateurService, dialecteService) {
 		}, function(){
 			//Error
 			$scope.displayMessage = true;
-			$scope.message = "KO";
+			$scope.message = "T'as pas bin enregistrer ton blaze";
 		});
 	}
 

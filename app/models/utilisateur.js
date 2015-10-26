@@ -17,20 +17,29 @@ var Utilisateur = db.define('utilisateur', {
 Utilisateur.sync().then(function(){});
 
 module.exports.create = function(req, res) {
-	Utilisateur.create({
-		nom: req.body.nom,
-		prenom: req.body.prenom,
-		genre: req.body.genre,
-		pseudo: req.body.pseudo,
-		motdp: req.body.motdp,
-		naissance: req.body.naissance,
-		adresse: req.body.adresse,
-		cp: req.body.cp
-	}).then(function(){
-		res.sendStatus(200);
-	}, function(){
-		res.sendStatus(500);
-	})
+	Utilisateur.findOne({
+		where:{
+			pseudo:req.body.pseudo
+		}
+	}).then(function (data) {
+		if (data == null){ 
+			Utilisateur.create({
+				nom: req.body.nom,
+				prenom: req.body.prenom,
+				genre: req.body.genre,
+				pseudo: req.body.pseudo,
+				motdp: req.body.motdp,
+				naissance: req.body.naissance,
+				adresse: req.body.adresse,
+				cp: req.body.cp
+			}).then(function(){
+				res.sendStatus(200);
+			}, function(){
+				res.sendStatus(500);
+			})
+		}
+		else res.sendStatus(500);
+	});
 };
 
 module.exports.findAll = function(req, res) {
