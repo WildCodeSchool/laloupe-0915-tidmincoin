@@ -9,7 +9,8 @@ var Utilisateur = db.define('utilisateur', {
   motdp: Sequelize.STRING,
   naissance: Sequelize.DATE,
   adresse: Sequelize.STRING,
-  cp: Sequelize.INTEGER(5)
+  cp: Sequelize.INTEGER(5),
+  admin: Sequelize.BOOLEAN
 
 
 });
@@ -31,7 +32,8 @@ module.exports.create = function(req, res) {
 				motdp: req.body.motdp,
 				naissance: req.body.naissance,
 				adresse: req.body.adresse,
-				cp: req.body.cp
+				cp: req.body.cp,
+				admin: req.body.adm
 			}).then(function(){
 				res.sendStatus(200);
 			}, function(){
@@ -67,7 +69,8 @@ module.exports.update = function(req, res){
 		motdp: req.body.motdp,
 		naissance: req.body.naissance,
 		adresse: req.body.adresse,
-		cp: req.body.cp
+		cp: req.body.cp,
+		admin: req.body.admin
 	}, {
 		where: {
 			id: req.params.id
