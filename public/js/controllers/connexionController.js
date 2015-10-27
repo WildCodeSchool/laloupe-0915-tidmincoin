@@ -9,7 +9,7 @@ function connexionController($scope, $location, utilisateurService) {
 		login.motdp = $scope.motdp;
 		utilisateurService.checkLog(login).then(function(res){
 			//SUCCESS
-			$location.path('/repertoire')
+			$location.path('/admin')
 		}, function(res){
 			//ERROR
 			alert("Erreur");

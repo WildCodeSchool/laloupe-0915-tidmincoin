@@ -4,7 +4,10 @@ function config($routeProvider) {
 			templateUrl: 'views/connexion.html',
 			controller: 'connexionController'
 		})
-		
+        .when('/admin', {
+            templateUrl: 'views/admin.html',
+			controller: 'adminController'
+		})
 		.when('/about', {
 			templateUrl: 'views/about.html'
 		})
@@ -16,24 +19,28 @@ function config($routeProvider) {
 			templateUrl: 'views/recherche.html',
 			controller: 'rechercheController'
 		})
-		.when('/repertoire', {
+		/*.when('/repertoire', {
 			templateUrl: 'views/repertoire.html',
 			controller: 'repertoireController'
 		})
-		.when('/repertoire/:id',{
+		.when('/repertoire/:id', {
+			templateUrl: 'views/profil.html',
+			controller: 'profilController'
+		})*/
+        .when('/admin/:id', {
 			templateUrl: 'views/profil.html',
 			controller: 'profilController'
 		})
-		.when('/dialectes', {
+		/*.when('/dialectes', {
 			templateUrl: 'views/dialectes.html',
 			controller: 'dialectesController'
-		})		
+		})*/
 		.otherwise('/')
 }
 
-function run($rootScope, $location){
+function run($rootScope, $location) {
 	var path = function() { return $location.path(); };
-	$rootScope.$watch(path, function(newVal, oldVal){
+	$rootScope.$watch(path,function(newVal, oldVal){
 		$rootScope.activetab = newVal;
 	});
 }
@@ -43,10 +50,11 @@ angular.module('app', ['ngRoute'])
     .controller('mainController', mainController)
     .controller('connexionController', connexionController)
     .controller('formulaireController', formulaireController)
-    .controller('repertoireController', repertoireController)
+    /*.controller('repertoireController', repertoireController)*/
 	.controller('rechercheController', rechercheController)
     .controller('profilController', profilController)
-    .controller('dialectesController', dialectesController)
+    /*.controller('dialectesController', dialectesController)*/
+    .controller('adminController', adminController)
     .service('utilisateurService', utilisateurService)
     .service('dialecteService', dialecteService)
     /*.factory('', )*/

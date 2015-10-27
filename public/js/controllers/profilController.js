@@ -15,7 +15,7 @@ function profilController($scope, $routeParams, $location, utilisateurService) {
 	$scope.editer = function() {
 		utilisateurService.update($scope.utilisateur.id, $scope.utilisateur).then(function(res){
 			if (res.status == "200"){
-				$location.path("/repertoire");
+				$location.path("/admin");
 			}
 		});
 	}

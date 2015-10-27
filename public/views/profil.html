@@ -12,13 +12,11 @@
 		<input type="text" class="form-control" id="inputMessage" ng-model="utilisateur.cp">
 		<select>
             <option value="true" ng-model='utilisateur.admin'>Oui</option>
-            <option value="true" ng-model='utilisateur.admin'>Non</option>
+            <option value="false" ng-model='utilisateur.admin'>Non</option>
         </select>
 
 	</div>
 		<div class="pull-right">
 					<button type="submit" class="btn btn-default" ng-click="editer()">Éditer</button>
 					<button type="submit" class="btn btn-danger" ng-click="supprimer(utilisateur)">Supprimer</button>
-		</div> 
-
-		
+		</div>
