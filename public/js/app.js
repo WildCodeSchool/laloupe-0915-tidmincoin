@@ -19,6 +19,10 @@ function config($routeProvider) {
 			templateUrl: 'views/recherche.html',
 			controller: 'rechercheController'
 		})
+        .when('/pussy', {
+            templateUrl: 'views/pussy.html',
+            controller: 'pussyController'
+        })
 		/*.when('/repertoire', {
 			templateUrl: 'views/repertoire.html',
 			controller: 'repertoireController'
@@ -50,6 +54,7 @@ angular.module('app', ['ngRoute'])
     .controller('mainController', mainController)
     .controller('connexionController', connexionController)
     .controller('formulaireController', formulaireController)
+    .controller('pussyController', pussyController)
     /*.controller('repertoireController', repertoireController)*/
 	.controller('rechercheController', rechercheController)
     .controller('profilController', profilController)
@@ -57,5 +62,6 @@ angular.module('app', ['ngRoute'])
     .controller('adminController', adminController)
     .service('utilisateurService', utilisateurService)
     .service('dialecteService', dialecteService)
+    .service('socketService', socketService)
     /*.factory('', )*/
     .run(run);

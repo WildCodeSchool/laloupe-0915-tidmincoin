@@ -1,0 +1,18 @@
+<div class="container">
+<h1>Eat pussy it's organic ;)</h1>
+
+
+        <form>
+            <input type="text" name="message" ng-model="message" placeholder="Votre message..." size="50" autofocus />
+            <input type="submit" value="Envoyer" ng-click="sendMessage()"/>
+        </form>
+
+        <section id="zone_chat">
+          Je suis {{user.name}}
+           <ul class="list-group">
+              <li class="list-group-item" ng-repeat="message in messages.slice().reverse()">
+                  {{message.user + ' dit ' +  message.message}}
+            </li>
+            </ul>
+        </section>
+</div>

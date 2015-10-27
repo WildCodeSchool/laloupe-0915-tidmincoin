@@ -6,6 +6,8 @@
 	var morgan			= require('morgan');
 	var bodyParser		= require('body-parser');
 	var methodOverride	= require('method-override');
+    
+
 	// configuration ===============================================================
 
 	app.use(express.static(__dirname + '/public'));					// set the static files location /public/img will be /img for users
@@ -16,8 +18,11 @@
 	app.use(methodOverride('X-HTTP-Method-Override'));				// override with the X-HTTP-Method-Override header in the request
 
 	// Serveur ===================================================================
-	var server = http.Server(app);
+	var server = http.createServer(app);
 
+    // Socket.io ===================================================================
+    var io = require('socket.io')(server);
+    require('./app/sockets.js')(io);
 
 	// routes ======================================================================
 	require('./app/controllers')(app);
