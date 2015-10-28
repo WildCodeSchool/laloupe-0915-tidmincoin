@@ -9,10 +9,9 @@ function connexionController($scope, $location, $rootScope, utilisateurService) 
 		login.motdp = $scope.motdp;
 		utilisateurService.checkLog(login).then(function(res){
             $rootScope.user = res.data;
-            alert('ça marche');
+            /*alert('ça marche');*/
 			//SUCCESS
-            
-			$location.path('/admin')
+			$location.path('/recherche');
 		}, function(res){
 			//ERROR
 			alert("Erreur");
