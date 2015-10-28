@@ -7,6 +7,9 @@ function utilisateurService($http) {
 			getById: function(id) {
 				return $http.get('/utilisateurs/' + id);
 			},
+			checkLog: function(login) {
+				return $http.post('/login/', login)
+			},
 			update : function(id, data){
 				return $http.put('/utilisateurs/' + id, data);
 			},

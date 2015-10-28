@@ -10,7 +10,7 @@ Dialecte.sync().then(function(){
 });
 
 module.exports.create = function(req, res) {
-	dialecte.create({
+	Dialecte.create({
 		dialecte: req.body.dialecte
 	}).then(function(){
 		res.sendStatus(200);
@@ -18,13 +18,13 @@ module.exports.create = function(req, res) {
 };
 
 module.exports.findAll = function(req, res) {
-	dialecte.findAll().then(function (data) {
+	Dialecte.findAll().then(function (data) {
 		res.json(data); 
 	});
 };
 
 module.exports.update = function(req, res){
-	dialecte.update({
+	Dialecte.update({
 		dialecte: req.body.dialecte
 	}, {
 		where: {
@@ -36,7 +36,7 @@ module.exports.update = function(req, res){
 }
 
 module.exports.delete = function(req, res){
-	dialecte.destroy({
+	Dialecte.destroy({
 		where: {
 			id: req.params.id
 		}

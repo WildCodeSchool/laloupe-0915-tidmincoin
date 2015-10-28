@@ -9,29 +9,76 @@ var Utilisateur = db.define('utilisateur', {
   motdp: Sequelize.STRING,
   naissance: Sequelize.DATE,
   adresse: Sequelize.STRING,
-  cp: Sequelize.INTEGER(5)
+  cp: Sequelize.INTEGER(5),
+  admin: Sequelize.BOOLEAN,
+  dialecte: Sequelize.STRING
 
 
 });
 
-Utilisateur.sync().then(function(){});
+Utilisateur.sync({force:true}).then(function(){});
 
 module.exports.create = function(req, res) {
-	Utilisateur.create({
-		nom: req.body.nom,
-		prenom: req.body.prenom,
-		genre: req.body.genre,
-		pseudo: req.body.pseudo,
-		motdp: req.body.motdp,
-		naissance: req.body.naissance,
-		adresse: req.body.adresse,
-		cp: req.body.cp
-	}).then(function(){
-		res.sendStatus(200);
-	}, function(){
-		res.sendStatus(500);
-	})
+	Utilisateur.findOrCreate({
+		where:{
+			pseudo:req.body.pseudo
+		}
+	}).then(function (data) {
+/*		if (data == null){ */
+			Utilisateur.create({
+				nom: req.body.nom,
+				prenom: req.body.prenom,
+				genre: req.body.genre,
+				pseudo: req.body.pseudo,
+				motdp: req.body.motdp,
+				naissance: req.body.naissance,
+				adresse: req.body.adresse,
+				cp: req.body.cp,
+				admin: req.body.adm,
+                dialecte: req.body.dialecte
+			}).then(function(){
+				res.sendStatus(200);
+			}, function(){
+				res.sendStatus(500);
+			})
+		/*}
+		else res.sendStatus(500);*/
+	});
 };
+
+
+
+
+/*module.exports.create = function(req, res) {
+	Utilisateur.findOne({
+		where:{
+			pseudo:req.body.pseudo
+		}
+	}).then(function (data) {
+		if (data == null){ 
+			Utilisateur.create({
+				nom: req.body.nom,
+				prenom: req.body.prenom,
+				genre: req.body.genre,
+				pseudo: req.body.pseudo,
+				motdp: req.body.motdp,
+				naissance: req.body.naissance,
+				adresse: req.body.adresse,
+				cp: req.body.cp,
+				admin: req.body.adm
+			}).then(function(){
+				res.sendStatus(200);
+			}, function(){
+				res.sendStatus(500);
+			})
+		}
+		else res.sendStatus(500);
+	});
+};
+*/
+
+
+
 
 module.exports.findAll = function(req, res) {
 	Utilisateur.findAll().then(function (data) {
@@ -58,7 +105,8 @@ module.exports.update = function(req, res){
 		motdp: req.body.motdp,
 		naissance: req.body.naissance,
 		adresse: req.body.adresse,
-		cp: req.body.cp
+		cp: req.body.cp,
+		admin: req.body.admin
 	}, {
 		where: {
 			id: req.params.id
@@ -75,5 +123,19 @@ module.exports.delete = function(req, res){
 		}
 	}).then(function(){
 		res.sendStatus(200);
+	})
+}
+
+module.exports.checkLog = function(req, res){
+	Utilisateur.findOne({
+		where: {
+			pseudo: req.body.pseudo,
+			motdp:req.body.motdp
+		}
+	}).then(function(user){
+		if(!user)
+			res.sendStatus(404);
+		else
+			res.json(200);
 	})
 }

@@ -1,0 +1,25 @@
+<!--partie Reépertoire d'utilisateurs-->
+<div>
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="utilisateur in utilisateurs">
+            <form class="form-inline">
+                <div class="form-group">
+                    <h4 type="text">{{utilisateur.pseudo}}</h4>
+                </div>
+                <div class="pull-right">
+                    <a href ='/#/admin/{{utilisateur.id}}' class="btn btn-default">Éditer</a>
+                    <button type="submit" class="btn btn-danger" ng-click="supprimer(utilisateur)">Supprimer</button>
+                </div>
+            </form>
+        </li>
+    </ul>
+</div>
+
+<!--Liste des dialectes-->
+<div>
+    <ul>
+        <li ng-repeat="dialecte in dialectes">{{dialecte.dialecte}}</li>
+    </ul>
+    <input ng-model="dialecte" placeholder="dialecte">
+    <button ng-click="add()">Ajouter</button>
+</div>
