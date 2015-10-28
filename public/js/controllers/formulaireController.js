@@ -8,9 +8,11 @@ function formulaireController($scope, utilisateurService, dialecteService) {
 		data.genre = $scope.genre;
 		data.pseudo = $scope.pseudo;
 		data.motdp = $scope.motdp;
+       /* console.log();*/
 		data.naissance = $scope.naissance;
 		data.adresse = $scope.adresse;
 		data.cp = $scope.cp;
+        data.dialecte = $scope.dialecte;
 
 
 		utilisateurService.create(data).then(function(res){

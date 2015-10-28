@@ -4,56 +4,123 @@
           		<div class="form-group">
             		<label class="sr-only" for="nom">Nom</label>
             			<div class="input-group">
-              				<input type="text" class="form-control" id="nom" placeholder="Nom" ng-model="nom">
+              				<input type="text"
+              				       class="form-control"
+                                   id="nom"
+                                   placeholder="Nom"
+                                   ng-model="nom"
+                                   pattern=".{1,20}"
+                                   required title="entre 1 et 20 caractères"
+                                   required > 
             			</div>
         		</div>
         		<div class="form-group">
             		<label class="sr-only" for="prenom">Prénom</label>
             			<div class="input-group">
-              				<input type="text" class="form-control" id="prenom" placeholder="Prénom" ng-model="prenom">
+              				<input type="text"
+              				       class="form-control"
+                                   id="prenom"
+                                   placeholder="Prénom"
+                                   ng-model="prenom"
+                                   pattern=".{1,20}"
+                                   required title="entre 1 et 20 caractères"
+                                   required > 
             			</div>
         		</div>
         		<div class="form-group">
+                    <select ng-model='genre'>
+                       <option value='' disabled >Genre</option>                                    <option value='male'>Male</option>
+                       <option value='femelle'>Femelle</option>
+                       <option value='indetermine'>Indeterminé</option>
+                    </select>
+                    
+                                        
+                </div>
+        		<!--<div class="form-group">
             		<label class="sr-only" for="genre">Genre</label>
             			<div class="input-group">
-              				<input type="text" class="form-control" id="genre" placeholder="Genre" ng-model="genre">
+              				<input type="text"
+              				       class="form-control"
+                                   id="genre"
+                                   placeholder="Genre"
+                                   ng-model="genre"
+                                   pattern=".{3,8}"
+                                   required title="entre 3 et 6 caractères"
+                                   required > 
             			</div>
-        		</div>
+        		</div>-->
         		<div class="form-group">
             		<label class="sr-only" for="pseudo">Pseudonyme</label>
             			<div class="input-group">
-              				<input type="text" class="form-control" id="pseudo" placeholder="Pseudonyme" ng-model="pseudo">
+              				<input type="text"
+              				       class="form-control"
+                                   id="pseudo"
+                                   placeholder="Pseudo"
+                                   ng-model="pseudo"
+                                   pattern=".{2,15}"
+                                   required title="entre 2 et 15 caractères"
+                                   required > 
             			</div>
         		</div>
         		<div class="form-group">
             		<label class="sr-only" for="mot">Mot de passe</label>
             			<div class="input-group">
-              				<input type="text" class="form-control" id="mot" placeholder="Mot de Passe" ng-model="motdp">
+              				<input type="text"
+              				       class="form-control"
+                                   id="motdp"
+                                   placeholder="Mot de passe"
+                                   ng-model="motdp"
+                                   pattern=".{3,10}"
+                                   required title="entre 3 et 10 caractères"
+                                   required > 
             			</div>
         		</div>
         		<div class="form-group">
             		<label class="sr-only" for="naissance">Date de naissance</label>
             			<div class="input-group">
-              				<input type="text" class="form-control" id="date" placeholder="date de naissance" ng-model="date">
+                             <input type="date" class="form-control"
+                                    id="naissance"
+                                    placeholder="Date de naissance"
+                                    ng-model="naissance"
+                                    required > 
             			</div>
         		</div>
         		<div class="form-group">
             		<label class="sr-only" for="adresse">Adresse internet</label>
             			<div class="input-group">
-              				<input type="text" class="form-control" id="adresse" placeholder="@dresse" ng-model="adresse">
+              				<input type="text"
+              				       class="form-control"
+                                   id="adresse"
+                                   placeholder="@dresse"
+                                   ng-model="adresse"
+                                   pattern=".{3,10}"
+                                   required title="entre 3 et 10 caractères"
+                                   required > 
             			</div>
         		</div>
         		<div class="form-group">
                 <label class="sr-only" for="cp">Code postal</label>
                   <div class="input-group">
-                      <input type="text" class="form-control" id="cp" placeholder="Code Postal" ng-model="cp">
+                      <input type="text"
+                             class="form-control"
+                             id="cp"
+                             placeholder="Code postal"
+                             ng-model="cp"
+                             pattern=".{5}"
+                             required title="5 caractères"
+                             required > 
                   </div>
             </div>
             <div class="form-group">
-            <select>
-               <option value="{{dialecte.dialecte}}" ng-repeat="dialecte in dialectes">{{dialecte.dialecte}}</option>
-            </select>
-        		</div>
+                <select ng-model='dialecte'>
+                   <option value='' disabled >Dialecte</option>                              <option value='picard'>Picard</option>
+                   <option value='gascon'>Gascon</option>
+                   <option value='frison'>Frison</option>
+                   <option value='nantais'>Nantais</option>
+                   <option value='jerome'>Jérôme</option>
+                   <option value='alsacien'>Alsacien</option>
+                </select>
+            </div>
 
           		<button type="submit" class="btn btn-default" ng-click="enregistrer()">S'enregistrer</button>
         	</form>

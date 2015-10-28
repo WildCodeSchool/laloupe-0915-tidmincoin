@@ -10,14 +10,46 @@ var Utilisateur = db.define('utilisateur', {
   naissance: Sequelize.DATE,
   adresse: Sequelize.STRING,
   cp: Sequelize.INTEGER(5),
-  admin: Sequelize.BOOLEAN
+  admin: Sequelize.BOOLEAN,
+  dialecte: Sequelize.STRING
 
 
 });
 
-Utilisateur.sync().then(function(){});
+Utilisateur.sync({force:true}).then(function(){});
 
 module.exports.create = function(req, res) {
+	Utilisateur.findOrCreate({
+		where:{
+			pseudo:req.body.pseudo
+		}
+	}).then(function (data) {
+/*		if (data == null){ */
+			Utilisateur.create({
+				nom: req.body.nom,
+				prenom: req.body.prenom,
+				genre: req.body.genre,
+				pseudo: req.body.pseudo,
+				motdp: req.body.motdp,
+				naissance: req.body.naissance,
+				adresse: req.body.adresse,
+				cp: req.body.cp,
+				admin: req.body.adm,
+                dialecte: req.body.dialecte
+			}).then(function(){
+				res.sendStatus(200);
+			}, function(){
+				res.sendStatus(500);
+			})
+		/*}
+		else res.sendStatus(500);*/
+	});
+};
+
+
+
+
+/*module.exports.create = function(req, res) {
 	Utilisateur.findOne({
 		where:{
 			pseudo:req.body.pseudo
@@ -43,6 +75,10 @@ module.exports.create = function(req, res) {
 		else res.sendStatus(500);
 	});
 };
+*/
+
+
+
 
 module.exports.findAll = function(req, res) {
 	Utilisateur.findAll().then(function (data) {
@@ -100,6 +136,6 @@ module.exports.checkLog = function(req, res){
 		if(!user)
 			res.sendStatus(404);
 		else
-			res.json(user);
+			res.json(200);
 	})
 }
