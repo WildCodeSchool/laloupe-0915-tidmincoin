@@ -3,10 +3,65 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     font-weight: 300;
-    color: purple;
+    color:#ffff;
     line-height: 30px;
     text-align: center;
+    padding-top: 70px;
+	margin:0;
+	padding:0;
+	background: url('/img/cover-depardon.jpg') no-repeat center fixed; 
+	-webkit-background-size: cover; /* pour anciens Chrome et Safari */
+	background-size: cover; /* version standardisée */
 }
+
+h1, h2 {
+	padding-top: 3.1em;
+  	font-family: 'Roboto', sans-serif;
+  	font-weight: 500;
+  	color: #ffffff;
+  	line-height: 30px;
+  	text-align: center;
+	font-size: 38px;
+}
+
+h3 {
+  	font-family: 'Roboto', sans-serif;
+  	font-weight: 300;
+  	color: #ffffff;
+  	line-height: 30px;
+  	text-align: center;
+  	font-size: 22px;   
+}
+
+.about {
+
+	background-color: rgba(0, 0, 0, 0.3);
+  	background-image: none;
+  	border-radius: 4px;
+}
+
+.about p {
+
+	color:white;
+}
+
+.container-bloc {
+  margin-top:5em;
+}
+
+.navbar-border{
+  border-bottom: 3px solid #F0DB4F;
+}
+
+.navbar-header img{
+  transition: 0.4s;
+}
+
+.navbar-header img:hover{
+  transform: rotate(360deg);
+}  
+
+img { max-width: 100%; }
 
 strong { font-weight: 500; }
 
@@ -16,22 +71,7 @@ a, a:hover, a:focus {
     -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
 }
 
-h1, h2 {
-	margin-top: 10px;
-	font-size: 38px;
-    font-weight: 300;
-    color: red;
-    line-height: 50px;
-}
-
-h3 {
-	font-size: 22px;
-    font-weight: 300;
-    color: white;
-    line-height: 30px;
-}
-
-img { max-width: 100%; }
+/* ---- BOOTSTRAPS ---- */
 
 ::-moz-selection { background: #de615e; color: #fff; text-shadow: none; }
 ::selection { background: #de615e; color: #fff; text-shadow: none; }

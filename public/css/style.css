@@ -1,45 +1,7 @@
-body{
-  padding-top: 70px;
-	margin:0;
-	padding:0;
-	background: url('../img/cover-depardon.jpg') no-repeat center fixed; 
-	-webkit-background-size: cover; /* pour anciens Chrome et Safari */
-	background-size: cover; /* version standardisée */
-}
-
-h1 {
-  /*padding-top: 300px;*/
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  color: #ffffff;
-  line-height: 30px;
-  text-align: center;
-}
-
-h3 {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  color: #ffffff;
-  line-height: 30px;
-  text-align: center;
-}
 
 
-.container-bloc {
-  margin-top:5em;
-}
 
-.navbar-border{
-  border-bottom: 3px solid #F0DB4F;
-}
 
-.navbar-header img{
-  transition: 0.4s;
-}
-
-.navbar-header img:hover{
-  transform: rotate(360deg);
-}  
 
 
 
