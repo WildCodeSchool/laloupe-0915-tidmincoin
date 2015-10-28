@@ -1,14 +1,11 @@
-function pussyController($scope, socketService){
+function pussyController($scope,$rootScope, socketService){
         $scope.messages = [];
     
-        $scope.user = {}; // Ici reprendre le $rootScope.user issu de la connexion
-        var i = Math.floor(Math.random() * 100);
-         $scope.user.name = "Dieu " + i;
-    
+        $scope.user = $rootScope.user;
         // Connexion au pussy
-        socketService.emit('nouveau_client',  $scope.user.name, function(){
+        socketService.emit('nouveau_client', $scope.user.pseudo, function(){
             $scope.messages.push({
-                user: $scope.user.name,
+                user: $scope.user.pseudo,
                 message: $scope.message,
                 date: new Date()
             });
@@ -26,7 +23,7 @@ function pussyController($scope, socketService){
     
         $scope.sendMessage = function(){
             $scope.messages.push({
-                user:$scope.user.name,
+                user:$scope.user.pseudo,
                 message: $scope.message
             });
             socketService.emit('message', $scope.message);

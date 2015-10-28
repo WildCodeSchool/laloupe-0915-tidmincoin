@@ -1,4 +1,4 @@
-function connexionController($scope, $location, utilisateurService) {
+function connexionController($scope, $location, $rootScope, utilisateurService) {
 	$scope.title = "page de connexion";
 
 
@@ -8,7 +8,10 @@ function connexionController($scope, $location, utilisateurService) {
 		login.pseudo = $scope.pseudo;
 		login.motdp = $scope.motdp;
 		utilisateurService.checkLog(login).then(function(res){
+            $rootScope.user = res.data;
+            alert('ça marche');
 			//SUCCESS
+            
 			$location.path('/admin')
 		}, function(res){
 			//ERROR

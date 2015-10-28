@@ -96,10 +96,10 @@ module.exports.checkLog = function(req, res){
 			pseudo: req.body.pseudo,
 			motdp:req.body.motdp
 		}
-	}).then(function(data){
-		if(!data)
+	}).then(function(user){
+		if(!user)
 			res.sendStatus(404);
 		else
-			res.sendStatus(200);
+			res.json(user);
 	})
 }
