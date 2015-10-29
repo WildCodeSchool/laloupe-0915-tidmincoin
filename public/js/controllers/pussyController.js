@@ -6,7 +6,7 @@ function pussyController($scope,$rootScope, socketService){
         socketService.emit('nouveau_client', $scope.user.pseudo, $scope.dialecte, function(){
             $scope.messages.push({
                 user: $scope.user.pseudo,
-                dialecte: $cope.user.dialecte
+                dialecte: $cope.user.dialecte,
                 message: $scope.message,
                 date: new Date()
             });

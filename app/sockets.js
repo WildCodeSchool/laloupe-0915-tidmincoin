@@ -14,7 +14,7 @@ module.exports = function(io){
 
         // Dès qu'on reçoit un message, on récupère le pseudo de son auteur et on le transmet aux autres personnes
         socket.on('message', function (message) {
-            socket.broadcast.emit('nouveau_message', {pseudo: socket.pseudo,dialecte: socket.dialecte message: message});
+            socket.broadcast.emit('nouveau_message', {pseudo: socket.pseudo,dialecte: socket.dialecte, message: message});
         });
         
         
