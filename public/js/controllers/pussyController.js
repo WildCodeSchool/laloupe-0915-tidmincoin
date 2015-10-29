@@ -1,12 +1,12 @@
 function pussyController($scope, $rootScope, socketService){
         $scope.messages = [];
         $scope.user = $rootScope.user;
-    debugger
+    
         // Connexion au pussy
         socketService.emit('nouveau_client', $scope.user.pseudo, $scope.dialecte, function(){
             $scope.messages.push({
                 user: $scope.user.pseudo,
-                dialecte: $cope.user.dialecte,
+                dialecte: $scope.user.dialecte,
                 message: $scope.message,
                 date: new Date()
             });
@@ -29,7 +29,7 @@ function pussyController($scope, $rootScope, socketService){
                 dialecte:$scope.user.dialecte,
                 message: $scope.message
             });
-            socketService.emit('message', $scope.message);
+            socketService.emit('message', {dialecte: $scope.user.dialecte, message: $scope.message});
         }
             
 
