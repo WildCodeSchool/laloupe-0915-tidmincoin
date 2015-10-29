@@ -1,7 +1,7 @@
-function pussyController($scope,$rootScope, socketService){
+function pussyController($scope, $rootScope, socketService){
         $scope.messages = [];
-    
         $scope.user = $rootScope.user;
+    debugger
         // Connexion au pussy
         socketService.emit('nouveau_client', $scope.user.pseudo, $scope.dialecte, function(){
             $scope.messages.push({

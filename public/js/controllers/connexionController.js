@@ -11,7 +11,7 @@ function connexionController($scope, $location, $rootScope, utilisateurService) 
             $rootScope.user = res.data;
             /*alert('ça marche');*/
 			//SUCCESS
-			$location.path('/recherche');
+			$location.path('/pussy');
 		}, function(res){
 			//ERROR
 			alert("Erreur");

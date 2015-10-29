@@ -11,7 +11,7 @@
           Je suis {{user.pseudo}}
            <ul class="list-group">
               <li class="list-group-item" ng-repeat="message in messages.slice().reverse()">
-                  {{message.user + ' dit en ' + 'dialecte.user ' message.message}}
+                  {{user.pseudo + ' dit en ' + user.dialecte + ' ' +  message.message}}
             </li>
             </ul>
         </section>

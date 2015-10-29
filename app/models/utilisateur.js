@@ -16,33 +16,30 @@ var Utilisateur = db.define('utilisateur', {
 
 });
 
-Utilisateur.sync({force:true}).then(function(){});
+Utilisateur.sync().then(function(){});
 
 module.exports.create = function(req, res) {
-	Utilisateur.findOrCreate({
-		where:{
-			pseudo:req.body.pseudo
-		}
-	}).then(function (data) {
-/*		if (data == null){ */
-			Utilisateur.create({
-				nom: req.body.nom,
-				prenom: req.body.prenom,
-				genre: req.body.genre,
-				pseudo: req.body.pseudo,
-				motdp: req.body.motdp,
-				naissance: req.body.naissance,
-				adresse: req.body.adresse,
-				cp: req.body.cp,
-				admin: req.body.adm,
-                dialecte: req.body.dialecte
-			}).then(function(){
-				res.sendStatus(200);
-			}, function(){
-				res.sendStatus(500);
-			})
-		/*}
-		else res.sendStatus(500);*/
+	Utilisateur.findOrCreate( { where : {
+        pseudo: req.body.pseudo,
+        }, defaults: {
+            nom: req.body.nom,
+            prenom: req.body.prenom,
+            genre: req.body.genre,
+            motdp: req.body.motdp,
+            naissance: req.body.naissance,
+            adresse: req.body.adresse,
+            cp: req.body.cp,
+            admin: req.body.adm,
+            dialecte: req.body.dialecte
+        }
+    }).then(function (data) {
+        var created  = data[1];
+        if( created ){
+             res.sendStatus(200);
+        } else {
+            res.sendStatus(409);
+        }
+       
 	});
 };
 
@@ -136,6 +133,6 @@ module.exports.checkLog = function(req, res){
 		if(!user)
 			res.sendStatus(404);
 		else
-			res.json(200);
+			res.json(user);
 	})
 }
